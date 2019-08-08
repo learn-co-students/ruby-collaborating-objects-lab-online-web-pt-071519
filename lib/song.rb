@@ -24,12 +24,12 @@ class Song
     song
     #binding.pry
   end
-  
+
   
   def artist_name=(name)
     artist = Artist.find_or_create_by_name(name)
     artist.add_song(self)
-    self.name = artist
+    self.artist = artist
     #binding.pry
   end
 end

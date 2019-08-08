@@ -1,4 +1,5 @@
 require 'pry'
+require 'pry'
 class Artist 
   
   attr_accessor :name, :artist
@@ -22,14 +23,22 @@ class Artist
     song.artist = self
   end
   
+  #def self.find(name)
+ #    @@all.detect {|artist| artist.name == name}
+  #end
+  
+  
+ # def self.create(name)
+ #   self.new(name)
+ # end
+  
   def self.find_or_create_by_name(name)
-    exist = @@all.detect {|artist| artist.name == name}
-    if exist 
-      exist 
-    else 
-      artist = Artist.new(name)
-      @@all << artist
+    artist = @@all.detect{|artist| artist.name == name}
+    if artist
       artist
+    else 
+     artist = self.new(name)
+     artist
     end
   end
   
@@ -37,6 +46,10 @@ class Artist
     self.songs.each do |song|
       puts song.name
     end
+  end
+  
+  def self.clear 
+    @@all = []
   end
   
 end 
