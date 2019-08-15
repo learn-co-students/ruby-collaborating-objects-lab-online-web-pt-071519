@@ -22,9 +22,11 @@ describe 'Artist' do
 
   describe '.all' do
     it 'returns all existing Artist instances' do
+      #binding.pry
       artist = Artist.new('Michael Jackson')
       expect(Artist.all).to eq([artist])
       prince = Artist.new('Prince')
+      #binding.pry
       expect(Artist.all).to eq([artist, prince])
     end
   end
