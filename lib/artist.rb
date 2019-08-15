@@ -4,12 +4,12 @@ class Artist
   
   def initialize(name)
     @name = name 
-    @@all << self 
+    @@all << self
   end
   
   def self.all 
     @@all 
-  end
+  end 
   
   def songs 
     Song.all.select {|song| song.artist == self}
@@ -32,7 +32,7 @@ class Artist
     self.find(name) ? self.find(name) : self.create(name)
   end
   
-  def print_songs 
+  def print_songs
     songs.each {|song| puts song.name}
   end
   

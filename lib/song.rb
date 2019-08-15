@@ -1,11 +1,11 @@
 class Song 
-  attr_accessor :name, :artist
+  attr_accessor :name, :artist 
   @@all = []
   
   def initialize(name)
     @name = name 
     @@all << self
-  end
+  end 
   
   def self.all 
     @@all 
@@ -15,14 +15,12 @@ class Song
     data = file.split(" - ")
     song = Song.new(data[1])
     song.artist_name = data[0]
-    song
-    #binding.pry
+    song 
   end
   
   def artist_name=(name)
     self.artist = Artist.find_or_create_by_name(name)
     artist.add_song(self)
-  end 
-  
+  end
   
 end
