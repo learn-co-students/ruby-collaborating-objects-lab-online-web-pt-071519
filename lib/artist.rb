@@ -10,7 +10,7 @@ class Artist
     @@all << self
   end
 
-  def Artist.all
+  def self.all
     @@all
   end
 
@@ -24,11 +24,13 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-     self.find(name) ? self.find(name) : self.new(name)
-   end
+    Artist.new(name) unless self.all.find do |artist| artist.name == name
+    end
+  end
 
   def print_songs
-    puts songs.name
+    songs.select do |song| puts song.name
+    end
   end
 
 end
