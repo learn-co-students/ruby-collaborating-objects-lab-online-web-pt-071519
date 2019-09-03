@@ -1,3 +1,4 @@
+require 'pry'
 
 class Song
   attr_accessor :name, :artist
@@ -14,10 +15,11 @@ class Song
   end
 
   def self.new_by_filename(filename)
-    song_title = filename.split(" - ")[1]
-    song = Song.new(song_title)
-    song.artist = filename.split(" - ")[0]
-    song
+    song = filename.split(" - ")[1]
+    artist = filename.split(" - ")[0]
+    new_song = Song.new(song)
+    new_song.artist = artist
+    new_song
   end
 
 end
