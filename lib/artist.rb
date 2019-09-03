@@ -1,12 +1,16 @@
 require 'pry'
-
+#
 class Artist
-  attr_accessor :name
+  attr_accessor :name, :songs
 
   @@all = []
 
   def initialize(name)
     @name = name
+    save
+  end
+
+  def save
     @@all << self
   end
 
@@ -16,7 +20,6 @@ class Artist
 
   def add_song(song)
     song.artist = self
-    @@all << self
   end
 
   def songs
